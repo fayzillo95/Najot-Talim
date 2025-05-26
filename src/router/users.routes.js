@@ -1,14 +1,14 @@
-import express from "express";
+import {Router} from "express";
 import userController from "../controller/users.controller.js"
-import jwtMidllwares from "../midllwares/responseHandlers/jwtMidllwares.js";
-import responseHandlers from "../midllwares/responseHandlers/responseHandlers.js";
+import {jwtMidllwares} from "../midllwares/responseHandlers/jwtMidllwares.js";
+import {responseHandlers} from "../midllwares/responseHandlers/responseHandlers.js";
 
-const router = express.Router();
+const userRouter = Router();
 
-router.post("/v1/register", userController.createUser, jwtMidllwares);
-router.post("/v2/login", userController.login, jwtMidllwares);
-router.get("/v3/:id", userController.getOneUser, responseHandlers);
-router.put("/v4/", userController.UpdateUser, responseHandlers);
-router.delete("/v5/", userController.deleteUser, responseHandlers);
+userRouter.post("/v1/register", userController.createUser, jwtMidllwares);
+userRouter.post("/v2/login", userController.login, jwtMidllwares);
+userRouter.get("/v3/:id", userController.getOneUser, responseHandlers);
+userRouter.put("/v4/", userController.UpdateUser, responseHandlers);
+userRouter.delete("/v5/", userController.deleteUser, responseHandlers);
 
-export default router;
+export default userRouter;

@@ -1,11 +1,11 @@
 import bcrypt from "bcrypt"
 import path from "path";
 import fs from "fs";
-import CustomError from "../../utils/helper/errors/custom.error";
-import userModel_ from "../../utils/resurs/models/userModel_";
+import CustomError from "../../utils/helper/errors/custom.error.js";
+import userModel_ from "../../utils/resurs/models/userModel_.js";
 import { isValidObjectId } from "mongoose";
-import AuthorizationError from "../../utils/helper/errors/Authorization.error";
-import ValidationError from "../../utils/helper/errors/ValidationError";
+import AuthorizationError from "../../utils/helper/errors/Authorization.error.js";
+import ValidationError from "../../utils/helper/errors/ValidationError.js";
 
 function getPath(fileName) {
     let filePath = path.join(process.cwd(), "src", "utils", "uploads")
@@ -42,7 +42,7 @@ export default class UserService {
             body.password,
             process.env.HASH
         )
-        
+
         const user = await userModel_.create(body)
         return {
             id: user._id

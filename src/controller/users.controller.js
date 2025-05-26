@@ -1,4 +1,4 @@
-import UserService from "../service/users/users.service"
+import UserService from "../service/users/users.service.js"
 
 export default class UserController {
     constructor() {}
