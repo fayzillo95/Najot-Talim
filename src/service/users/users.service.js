@@ -5,6 +5,7 @@ import CustomError from "../../utils/helper/errors/custom.error";
 import userModel_ from "../../utils/resurs/models/userModel_";
 import { isValidObjectId } from "mongoose";
 import AuthorizationError from "../../utils/helper/errors/Authorization.error";
+import ValidationError from "../../utils/helper/errors/ValidationError";
 
 function getPath(fileName) {
     let filePath = path.join(process.cwd(), "src", "utils", "uploads")
@@ -28,15 +29,20 @@ export default class UserService {
     constructor() { }
 
     static async register(body, file) {
+        const existsuser = await userModel_.findOne({ email: body.email })
+        if (existsuser) throw new ValidationError(406, "User email already exists !")
+
         body.profile_img = new Date().getTime() + "_" + file.name
         const fullPath = getPath(body.profile_img)
         await file.mv(fullPath, (error) => {
             if (error) throw new CustomError(400, "Fileni yzishda muammo chiqdi !")
         })
+
         body.password = await bcrypt.hash(
             body.password,
             process.env.HASH
         )
+        
         const user = await userModel_.create(body)
         return {
             id: user._id

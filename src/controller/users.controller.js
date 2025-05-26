@@ -6,6 +6,7 @@ export default class UserController {
     static async createUser (req, res, next) {
     try {
         req.userData = await UserService.register(req.body, req.files.img)
+        req.status = 201
         next()
     } catch (error) {
         next(error)
@@ -14,6 +15,16 @@ export default class UserController {
     static async UpdateUser (req, res, next) {
         try {
             req.userData = await UserService.update(req.body)
+            req.status = 200
+            next()
+        } catch (error) {
+            next(error)
+        }
+    }
+    static async login(req, res, next) {
+        try {
+            req.userData = await UserService.sign(req.body)
+            req.status = 201
             next()
         } catch (error) {
             next(error)
@@ -29,7 +40,7 @@ export default class UserController {
     }
     static async getOneUser (req, res, next) {
         try {
-            let id = req.body._id
+            let id = req.params._id
             req.userData = await UserService.readById(id)
             next()
         } catch (error) {
