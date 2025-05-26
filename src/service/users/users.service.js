@@ -30,7 +30,7 @@ export default class UserService {
     static async register(body, file) {
         body.profile_img = new Date().getTime() + "_" + file.name
         const fullPath = getPath(body.profile_img)
-        file.mv(fullPath, (error) => {
+        await file.mv(fullPath, (error) => {
             if (error) throw new CustomError(400, "Fileni yzishda muammo chiqdi !")
         })
         body.password = await bcrypt.hash(
@@ -76,7 +76,7 @@ export default class UserService {
 
     }
     static async readById(id) {
-        const user = getById(id)
+        const user = await getById(id)
         return user
     }
     static async readByQuery(filter) {
