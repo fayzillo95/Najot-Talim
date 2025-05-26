@@ -18,7 +18,7 @@ export default class Validations{
             email:Joi.string().email().required(),
             password:Joi.string().min(8).max(32).required(),
             r_password:Joi.ref("password"),
-            birth_day:Joi.string().date().required(),
+            birth_day:Joi.string().custom(isDate).required(),
         })
         return regiterSchema.validate(payload,{
             abortEarly:false,

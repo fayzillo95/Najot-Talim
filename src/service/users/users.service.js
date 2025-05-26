@@ -40,7 +40,7 @@ export default class UserService {
 
         body.password = await bcrypt.hash(
             body.password,
-            process.env.HASH
+            parseInt(process.env.HASH)
         )
 
         const user = await userModel_.create(body)
@@ -79,7 +79,8 @@ export default class UserService {
         }
     }
     static async readAllItems() {
-
+        const data = await userModel_.find()
+        return data
     }
     static async readById(id) {
         const user = await getById(id)

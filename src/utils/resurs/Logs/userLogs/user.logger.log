@@ -1,0 +1,19 @@
+[2025-05-27 04:23:05] INFO: Cannot read properties of null (reading 'img')
+[2025-05-27 04:25:57] INFO: Cannot read properties of null (reading 'img')
+[2025-05-27 04:28:17] INFO: Cannot read properties of null (reading 'img')
+[2025-05-27 04:29:17] ERROR: Cannot read properties of null (reading 'img')
+[2025-05-27 04:29:57] ERROR: Cannot read properties of null (reading 'img')
+[2025-05-27 04:30:13] ERROR: Cannot read properties of null (reading 'img')
+[2025-05-27 04:30:53] ERROR: Cannot read properties of null (reading 'img')
+[2025-05-27 04:31:02] ERROR: Cannot read properties of null (reading 'img')
+[2025-05-27 04:31:21] ERROR: Cannot read properties of null (reading 'img')
+[2025-05-27 04:31:40] ERROR: Cannot read properties of null (reading 'img')
+[2025-05-27 04:31:56] ERROR: Cannot read properties of null (reading 'img')
+[2025-05-27 04:33:42] ERROR: Cannot read properties of null (reading 'img')
+[2025-05-27 04:33:50] ERROR: Cannot read properties of null (reading 'img')
+[2025-05-27 04:34:32] ERROR: Cannot read properties of null (reading 'img')
+[2025-05-27 04:35:56] INFO: Invalid data empty files !
+[2025-05-27 04:37:55] INFO: Invalid data empty files !
+[2025-05-27 04:39:55] ERROR: Joi.string(...).date is not a function
+[2025-05-27 04:41:07] ERROR: Invalid salt. Salt must be in the form of: $Vers$log2(NumRounds)$saltvalue
+[2025-05-27 04:44:51] INFO: User email already exists !

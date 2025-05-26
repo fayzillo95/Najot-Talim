@@ -1,7 +1,8 @@
-import { logger } from "../../utils/resurs/logs/logger_"
+import { logger } from "../../utils/resurs/logs/logger_.js"
 
 
-export default (err, req, res, next) => {
+export const errorMidllwares =  (err, req, res, next) => {
+    console.log(err.stack.split("\n"))
     if (err.status) {
         logger.info(err.message)
         return res.status(err.status).json({
@@ -9,7 +10,7 @@ export default (err, req, res, next) => {
             message: err.message
         })
     }
-    logger.info(err.message)
+    logger.error(err.message)
     return res.status(500).json({
         succes: false,
         message: "Internal server error !"
